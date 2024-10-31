@@ -38,8 +38,8 @@ public class Main_FIFO {
           algoritmo.añadirProceso(new Procesos (nombre, tiempoLlegada, tiempoCPU));
       }
       algoritmo.ejecutarProceso();
-      algoritmo.tiempoSistema();
-      
+//      algoritmo.tiempoSistema();
+//      algoritmo.tiempoEspera();
       scanner.close(); 
         
     }
