@@ -30,6 +30,7 @@ public class Algorithm_FIFO {
         listaProcesos.add(proceso);
 
     }
+    
 
     public void ejecutarProceso() {
         for (int i = 0; i < listaProcesos.size() - 1; i++) {
@@ -49,11 +50,12 @@ public class Algorithm_FIFO {
         System.out.println("|Nombre Proceso | Tiempo de Llegada | CPU |");
         System.out.println("-------------------------------------------------");
         
-        int tiempoEjecucionFinal = 0;
-        int temporal = 0;
+        int tiempoEjecucionFinal = 0;       
         int tiempoInicial=0;
+        int tiempoLlegada=0;
+        
         for (Procesos proceso : listaProcesos) {
-
+            
             if (tiempoActual < proceso.getTiempoLlegada()) {
                 tiempoActual = proceso.getTiempoLlegada();
 
@@ -63,6 +65,7 @@ public class Algorithm_FIFO {
 
             tiempoEjecucionFinal = tiempoInicial + proceso.getTiempoCPU();
             tiempoActual += proceso.getTiempoCPU();
+           
             System.out.println("|     " + proceso.getNombreProceso() + "      |         "
                     + proceso.getTiempoLlegada() + "         |      "
                     + proceso.getTiempoCPU() + "       |");
@@ -71,38 +74,38 @@ public class Algorithm_FIFO {
             
             
         }
-        tiempoSistema(tiempoInicial, tiempoEjecucionFinal);
-
-        System.out.println("----------------------------------------------");
-    }
-
-    public void DiagramaProcesos() {     
-        System.out.println("----------------------------------------------");
-
-        for (String listaFinalizado : procesosTerminados) {
-            System.out.println(listaFinalizado);
+        for (String listaProceso : procesosTerminados) {
+            System.out.println(listaProceso);          
         }
 
+        System.out.println("----------------------------------------------");
     }
 
-    public void tiempoSistema(int tiempoInicial, int tiempoEjecucionFinal) {
+    public void tiempoSistema() {
+        
         System.out.println("Tiempo Sistema");
         System.out.println("|Proceso | Tiempo Ejecución | Tiempo Llegada | T.Ej - T.Ll|");
         System.out.println("--------------------------------------------------------------------------");
-
         int tiempoSistemaTotal = 0;      
-        int tiempoinicial = 0;
-        
+        int tiempoInicial = 0;
+        int tiempoEjecucionFinal =0;
+        int tiempoLlegada=0;
+        int temporal=0;
         for (Procesos proceso : listaProcesos) {
+             if (temporal < proceso.getTiempoLlegada()) {
+                temporal = proceso.getTiempoLlegada();
 
-//            tiempoinicial = proceso.getTiempoLlegada();
-//            tiempoEjecucionFinal = tiempoinicial + proceso.getTiempoCPU();
-//
-              int tiempoLlegada = proceso.getTiempoLlegada();
-              int tiempoSistema = tiempoEjecucionFinal - tiempoLlegada;
+            }
+
+            tiempoInicial = temporal;
+
+            tiempoEjecucionFinal = tiempoInicial + proceso.getTiempoCPU();
+            temporal += proceso.getTiempoCPU();           
+            int tiempoSistema = tiempoEjecucionFinal - proceso.getTiempoLlegada()
+;
 
             System.out.println("|      " + proceso.getNombreProceso() + "       |        " + tiempoEjecucionFinal + "         |       "
-                    + tiempoLlegada + "       |       " + tiempoSistema + "         |");
+                    + proceso.getTiempoLlegada() + "       |       " + tiempoSistema + "         |");
 
             tiempoSistemaTotal += tiempoSistema;
         }
@@ -121,15 +124,18 @@ public class Algorithm_FIFO {
 
         int tiempoSistemaTotal = 0;
         int tiempoInicio = 0;
-        int tiempoAñadido = 0;
+        int temporal=0;
+        
         for (Procesos proceso : listaProcesos) {
+            if (temporal < proceso.getTiempoLlegada()) {
+                temporal = proceso.getTiempoLlegada();
 
-            tiempoInicio += proceso.getTiempoLlegada();
-            int tiempoLlegada = proceso.getTiempoLlegada();
-            int tiempoSistema = tiempoInicio - tiempoLlegada;
-
+            }
+            tiempoInicio = temporal ;          
+            int tiempoSistema = tiempoInicio - proceso.getTiempoLlegada();
+            temporal += proceso.getTiempoCPU();
             System.out.println("|      " + proceso.getNombreProceso() + "       |        " + tiempoInicio + "         |       "
-                    + tiempoLlegada + "       |       " + tiempoSistema + "         |");
+                    + proceso.getTiempoLlegada() + "       |       " + tiempoSistema + "         |");
 
             tiempoSistemaTotal += tiempoSistema;
         }
