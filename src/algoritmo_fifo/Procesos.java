@@ -5,8 +5,10 @@
 package algoritmo_fifo;
 
 /**
- *
- * @author ESTUDIANTE
+ * @author Jeison Alvarez
+ * @author Joselyn Abarca
+ * @author Adrian Chavarria
+ * @author Katlyn Lopez
  */
 public class Procesos {
     
@@ -52,6 +54,4 @@ public class Procesos {
         return "Procesos{" + "nombreProceso=" + nombreProceso + ", tiempoLllegada=" + tiempoLlegada + ", tiempoCPU=" + tiempoCPU + '}';
     }
 
-    
-    
 }

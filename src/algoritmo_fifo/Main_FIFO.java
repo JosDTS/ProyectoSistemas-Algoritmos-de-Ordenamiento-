@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author ESTUDIANTE
+ * @author Jeison Alvarez
+ * @author Joselyn Abarca
+ * @author Adrian Chavarria
  */
 public class Main_FIFO {
 
@@ -23,19 +25,19 @@ public class Main_FIFO {
         
       while(true){
           System.out.println("Ingrese el Nombre del proceso (en caso de terminar ingrese 0): ");
-          String nombre = scanner.nextLine(); 
+          String name = scanner.nextLine(); 
           
-          if (nombre.equals("0")) {
+          if (name.equals("0")) {
               break; 
           }
           
           System.out.println("Ingrese el tiempo de llegada: ");
           int tiempoLlegada = Integer.parseInt(scanner.nextLine()); 
           
-          System.out.println("Ingrese el tiempode CPU: ");
+          System.out.println("Ingrese el tiempo de CPU: ");
           int tiempoCPU = Integer.parseInt(scanner.nextLine()); 
           
-          algoritmo.añadirProceso(new Procesos (nombre, tiempoLlegada, tiempoCPU));
+          algoritmo.añadirProceso(new Procesos (name, tiempoLlegada, tiempoCPU));
       }
       algoritmo.ejecutarProceso();
       algoritmo.tiempoSistema();

@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package algoritmo_fifo;
-
-import java.util.Comparator;
 import java.util.ArrayList;
 
 /**
- *
- * @author ESTUDIANTE
+ * @author Jeison Alvarez
+ * @author Joselyn Abarca
+ * @author Adrian Chavarria
+ * @author Katlyn Lopez
  */
 public class Algorithm_FIFO {
 
@@ -52,8 +52,7 @@ public class Algorithm_FIFO {
         
         int tiempoEjecucionFinal = 0;       
         int tiempoInicial=0;
-        int tiempoLlegada=0;
-        
+
         for (Procesos proceso : listaProcesos) {
             
             if (tiempoActual < proceso.getTiempoLlegada()) {
@@ -89,7 +88,6 @@ public class Algorithm_FIFO {
         int tiempoSistemaTotal = 0;      
         int tiempoInicial = 0;
         int tiempoEjecucionFinal =0;
-        int tiempoLlegada=0;
         int temporal=0;
         for (Procesos proceso : listaProcesos) {
              if (temporal < proceso.getTiempoLlegada()) {
