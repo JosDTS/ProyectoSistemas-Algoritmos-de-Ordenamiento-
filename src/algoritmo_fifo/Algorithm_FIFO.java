@@ -116,7 +116,7 @@ public class Algorithm_FIFO {
 
     public void tiempoEspera() {
         System.out.println("--------------------------------------------------------------------------");
-        System.out.println("Tiempo Espera");
+        System.out.println("                        Tiempo Espera");
         System.out.println("|Proceso | Tiempo Inicio | Tiempo Llegada | T.In - T.Ll|");
         System.out.println("--------------------------------------------------------------------------");
 
